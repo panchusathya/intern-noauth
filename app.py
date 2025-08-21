@@ -2521,8 +2521,8 @@ def convert():
         if not recipient_email:
             return jsonify({'error': 'Recipient email address is required'}), 400
         
-        if not user_email:
-            return jsonify({'error': 'User not authenticated'}), 401
+        # if not user_email:
+        #     return jsonify({'error': 'User not authenticated'}), 401
         
         # Generate unique task ID
         task_id = str(uuid.uuid4())
@@ -2946,8 +2946,8 @@ def get_generation_history():
     """Get all generation history from database for frontend"""
     try:
         user_email = session.get('user_email')
-        if not user_email:
-            return jsonify({'error': 'User not authenticated'}), 401
+        #if not user_email:
+        #    return jsonify({'error': 'User not authenticated'}), 401
         
         # Get tasks from PostgreSQL database
         tasks = postgres_db.get_user_tasks(user_email)
@@ -3187,9 +3187,9 @@ def submit_batch_job():
         
         user_email = session.get('user_email')
         print(f"[BATCH] User email from session: {user_email}")
-        if not user_email:
-            print("[BATCH] ERROR: User not authenticated")
-            return jsonify({'error': 'User not authenticated'}), 401
+        #if not user_email:
+        #    print("[BATCH] ERROR: User not authenticated")
+        #    return jsonify({'error': 'User not authenticated'}), 401
         
         # Create batch job record in database
         batch_job_id = str(uuid.uuid4())
@@ -3270,8 +3270,8 @@ def list_batch_jobs():
     """Get all batch jobs for the current user"""
     try:
         user_email = session.get('user_email')
-        if not user_email:
-            return jsonify({'error': 'User not authenticated'}), 401
+        #if not user_email:
+        #    return jsonify({'error': 'User not authenticated'}), 401
         
         batch_jobs = postgres_db.get_user_batch_jobs(user_email)
         
@@ -3290,8 +3290,8 @@ def get_batch_notifications():
     """Get recent batch completion notifications for the user"""
     try:
         user_email = session.get('user_email')
-        if not user_email:
-            return jsonify({'error': 'User not authenticated'}), 401
+        #if not user_email:
+        #    return jsonify({'error': 'User not authenticated'}), 401
         
         # Get recently completed batch jobs
         conn = postgres_db.get_connection()
