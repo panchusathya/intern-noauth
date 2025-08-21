@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wello - Internal Tooling to Help Out With Outbound Cold Outreach</title>
+    <meta name="description" content="Generate personalized PowerPoint presentations and emails with AI">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <!-- Modern Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-left">
+                <button class="mobile-sidebar-toggle" id="mobileSidebarToggle" aria-label="Toggle history sidebar">
+                    <span class="toggle-bars">≡</span>
+                </button>
+                <div class="logo-section">
+                    <img src="{{ url_for('logo') }}" alt="Westbridge" class="logo">
+                    <div class="branding">
+                        <div class="brand-name">Wello</div>
+                        <div class="brand-subtitle">Westbridge Internal Tooling</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="auth-section">
+                {% if user and user.authenticated %}
+                <div class="user-dropdown" id="userDropdown">
+                    <button class="user-dropdown-btn" id="userDropdownBtn">
+                        <span class="user-avatar"></span>
+                        <span class="user-name" id="userName">{{ user.name }}</span>
+                        <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <div class="user-dropdown-menu" id="userDropdownMenu">
+                        <a href="/" class="dropdown-item active">
+                            <span class="dropdown-icon">
+                                <svg class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                                </svg>
+                            </span>
+                            Home
+                        </a>
+                        <a href="/analytics" class="dropdown-item">
+                            <span class="dropdown-icon">
+                                <svg class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
+                                </svg>
+                            </span>
+                            Analytics
+                        </a>
+                        <a href="/history" class="dropdown-item">
+                            <span class="dropdown-icon">
+                                <svg class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                </svg>
+                            </span>
+                            History
+                        </a>
+                        <a href="/customization" class="dropdown-item">
+                            <span class="dropdown-icon">
+                                <svg class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 0 1 1.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.559.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.894.149c-.424.07-.764.383-.929.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 0 1-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.398.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 0 1-.12-1.45l.527-.737c.25-.35.272-.806.108-1.204-.165-.397-.506-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.108-1.204l-.526-.738a1.125 1.125 0 0 1 .12-1.45l.773-.773a1.125 1.125 0 0 1 1.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894Z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                </svg>
+                            </span>
+                            Customization
+                        </a>
+                        <hr class="dropdown-divider">
+                        <a href="/logout" class="dropdown-item logout">
+                            <span class="dropdown-icon">
+                                <svg class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9" />
+                                </svg>
+                            </span>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+                {% else %}
+                <button class="auth-btn" id="authBtn">
+                    <span class="auth-text">Sign In</span>
+                </button>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="app-layout">
+        <!-- History Sidebar -->
+        <aside class="history-sidebar" id="historySidebar">
+            <div class="sidebar-header">
+                <h2 class="sidebar-title">
+                    <span class="sidebar-icon">
+                        <svg class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 0 0-1.883 2.542l.857 6a2.25 2.25 0 0 0 2.227 1.932H19.05a2.25 2.25 0 0 0 2.227-1.932l.857-6a2.25 2.25 0 0 0-1.883-2.542m-16.5 0V6A2.25 2.25 0 0 1 6 3.75h3.879a1.5 1.5 0 0 1 1.06.44l2.122 2.12a1.5 1.5 0 0 0 1.06.44H18A2.25 2.25 0 0 1 20.25 9v.776" />
+                        </svg>
+                    </span>
+                    Projects & History
+                </h2>
+                <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle history sidebar">
+                    <span class="toggle-icon">◀</span>
+                </button>
+            </div>
+            
+            <div class="sidebar-content">
+                <!-- Project Management Section -->
+                <div class="project-section">
+                    <div class="project-header">
+                        <h3 class="project-title">Projects</h3>
+                        <button class="btn-small" id="createProjectBtn" title="Create New Project">+</button>
+                    </div>
+                    
+                    <div class="project-list" id="projectList">
+                        <div class="project-item active" data-project-id="1">
+                            <div class="project-info">
+                                <span class="project-name">General</span>
+                                <span class="project-count">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- History Search -->
+                <div class="history-search">
+                    <div class="search-input-container">
+                        <svg class="search-icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                        </svg>
+                        <input type="text" id="historySearch" placeholder="Search history..." class="search-input">
+                    </div>
+                </div>
+                
+                <!-- History Filters -->
+                <div class="history-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="completed">Completed</button>
+                    <button class="filter-btn" data-filter="failed">Failed</button>
+                </div>
+                
+                <div class="history-list" id="historyList">
+                    <div class="history-empty">
+                        <div class="empty-icon">
+                            <svg class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m3.75 9v6m3-3H9m1.5-12H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                            </svg>
+                        </div>
+                        <p>No generations yet</p>
+                        <small>Start by entering a company URL above</small>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <div class="container">
+                <!-- Generator Tab Content -->
+                <div class="tab-content active" id="generatorContent">
+                    <div class="main-card">
+                        <div class="generator-container">
+                            <div class="generator-stage">
+                                <form id="convertForm">
+                <div class="form-group">
+                    <label class="form-label">Outreach Type</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="outreach_type" value="founder" id="outreach_founder">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Founder Outreach</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="outreach_type" value="investor" id="outreach_investor">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Investor Outreach</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="outreach_type" value="any" id="outreach_any">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Any Outreach</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="outreach_type" value="batch" id="outreach_batch">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Batch Processing</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Founder Outreach Fields -->
+                <div class="founder-fields" id="founder-fields" style="display: none;">
+                    <div class="form-group">
+                        <label for="url" class="form-label">Target Company Website</label>
+                        <input 
+                            type="url" 
+                            id="url" 
+                            name="url" 
+                            class="form-input"
+                            placeholder="https://example.com" 
+                            pattern="https?://.*"
+                            autocomplete="url"
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="checkbox-option">
+                            <input type="checkbox" id="has_expert_info" name="has_expert_info">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">I have expert transcripts or other information on customers</span>
+                        </label>
+                    </div>
+                    
+                    <div class="form-group" id="expert-info-group" style="display: none;">
+                        <label for="expert_info" class="form-label">Expert Transcripts / Customer Information</label>
+                        <textarea 
+                            id="expert_info" 
+                            name="expert_info" 
+                            class="form-textarea"
+                            rows="6"
+                            placeholder="Paste expert call transcripts, customer quotes, or other firsthand information about the target company's customers. This will be used as additional context for creating more informed slides."
+                        ></textarea>
+                        <small class="form-hint">This information will be used subtly as additional context and won't dominate the presentation content.</small>
+                    </div>
+                </div>
+
+                <!-- Investor Outreach Fields -->
+                <div class="investor-fields" id="investor-fields" style="display: none;">
+                    <div class="form-group">
+                        <label for="investor_name" class="form-label">Investor Name</label>
+                        <input 
+                            type="text" 
+                            id="investor_name" 
+                            name="investor_name" 
+                            class="form-input"
+                            placeholder="e.g., John Smith" 
+                            autocomplete="name"
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="fund_name" class="form-label">Fund Name</label>
+                        <input 
+                            type="text" 
+                            id="fund_name" 
+                            name="fund_name" 
+                            class="form-input"
+                            placeholder="e.g., Acme Ventures" 
+                            autocomplete="organization"
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="outreach_context" class="form-label">Outreach Context</label>
+                        <textarea 
+                            id="outreach_context" 
+                            name="outreach_context" 
+                            class="form-textarea"
+                            rows="3"
+                            placeholder="Describe what kind of outreach you're doing. E.g., 'Looking to connect with this investor who is big into cybersecurity companies. Need to find their blog posts on cybersecurity, quotes about investing in that field, etc.'"
+                        ></textarea>
+                    </div>
+                </div>
+
+                <!-- Any Outreach Fields -->
+                <div class="any-fields" id="any-fields" style="display: none;">
+                    <div class="form-group">
+                        <label for="person_name" class="form-label">Person Name</label>
+                        <input 
+                            type="text" 
+                            id="person_name" 
+                            name="person_name" 
+                            class="form-input"
+                            placeholder="e.g., Jane Doe" 
+                            autocomplete="name"
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="organization" class="form-label">Associated Organization</label>
+                        <input 
+                            type="text" 
+                            id="organization" 
+                            name="organization" 
+                            class="form-input"
+                            placeholder="e.g., TechCorp, Stanford University, etc." 
+                            autocomplete="organization"
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="outreach_request" class="form-label">Outreach Request</label>
+                        <textarea 
+                            id="outreach_request" 
+                            name="outreach_request" 
+                            class="form-textarea"
+                            rows="4"
+                            placeholder="Describe what you want to write about. E.g., 'I want to reach out to this person about a potential partnership opportunity. They work on AI/ML at their company and we think there could be synergies with our portfolio companies.'"
+                        ></textarea>
+                    </div>
+                </div>
+                
+                <!-- Batch Processing Fields -->
+                <div class="batch-fields" id="batch-fields" style="display: none;">
+                    <div class="form-group">
+                        <label for="csv_file" class="form-label">Upload CSV File</label>
+                        <div class="file-upload-area" id="csvUploadArea">
+                            <input type="file" id="csv_file" name="csv_file" accept=".csv" class="file-input">
+                            <div class="upload-content">
+                                <div class="upload-icon">📄</div>
+                                <div class="upload-text">
+                                    <span class="upload-primary">Click to upload CSV file</span>
+                                    <span class="upload-secondary">Maximum 100 rows • Format: Company, Email</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" id="batch-type-group" style="display: none;">
+                        <label class="form-label">Batch Processing Type</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="batch_type" value="founder" id="batch_founder">
+                                <span class="radio-custom"></span>
+                                <span class="radio-label">Founder Outreach</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="batch_type" value="investor" id="batch_investor">
+                                <span class="radio-custom"></span>
+                                <span class="radio-label">Investor Research</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="batch_type" value="any" id="batch_any">
+                                <span class="radio-custom"></span>
+                                <span class="radio-label">Any Outreach</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- CSV Preview Table -->
+                    <div class="csv-preview" id="csvPreview" style="display: none;">
+                        <h4 class="preview-title">CSV Preview</h4>
+                        <div class="table-container">
+                            <table class="preview-table" id="previewTable">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Company</th>
+                                        <th>Email</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="previewTableBody">
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="preview-summary" id="previewSummary"></div>
+                    </div>
+                </div>
+                
+                <div class="form-group" id="sector-group" style="display: none;">
+                    <label class="form-label">Sector</label>
+                    <div class="radio-group" id="sector-options">
+                        <!-- Founder outreach options (default) -->
+                        <label class="radio-option founder-option">
+                            <input type="radio" name="sector" value="infra">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Infra</span>
+                        </label>
+                        <label class="radio-option founder-option">
+                            <input type="radio" name="sector" value="security">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Security</span>
+                        </label>
+                        <label class="radio-option founder-option">
+                            <input type="radio" name="sector" value="healthcare">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Healthcare</span>
+                        </label>
+                        <label class="radio-option founder-option">
+                            <input type="radio" name="sector" value="finance">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Finance</span>
+                        </label>
+                        <label class="radio-option founder-option">
+                            <input type="radio" name="sector" value="gtm">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">GTM</span>
+                        </label>
+                        <!-- Investor outreach options -->
+                        <label class="radio-option investor-option" style="display: none;">
+                            <input type="radio" name="sector" value="infra">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Infra</span>
+                        </label>
+                        <label class="radio-option investor-option" style="display: none;">
+                            <input type="radio" name="sector" value="healthcare">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Healthcare</span>
+                        </label>
+                        <label class="radio-option investor-option" style="display: none;">
+                            <input type="radio" name="sector" value="apps">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Apps</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group" id="founder-email-group">
+                    <label for="recipient_email" class="form-label" id="founder-email-label">Recipient Email Address</label>
+                    <input 
+                        type="email" 
+                        id="recipient_email" 
+                        name="recipient_email" 
+                        class="form-input"
+                        placeholder="recipient@company.com" 
+                        autocomplete="email"
+                    >
+                </div>
+                
+                <div class="form-group" id="cc-emails-group">
+                    <label for="cc_emails" class="form-label">CC Email(s) <span class="optional-label">(Optional)</span></label>
+                    <input 
+                        type="text" 
+                        id="cc_emails" 
+                        name="cc_emails" 
+                        class="form-input"
+                        placeholder="cc@company.com, cc2@company.com" 
+                        autocomplete="email"
+                    >
+                    <small class="form-hint">Separate multiple emails with commas</small>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+                    <span id="btnText">Generate Presentation & Email</span>
+                    <span class="spinner" style="display: none;" aria-hidden="true"></span>
+                </button>
+                </form>
+                            </div>
+                        </div>
+            
+            <!-- Progress Section -->
+            <div id="progressSection" class="progress-section">
+                <h3 class="progress-title">
+                    <span class="pulse">●</span> 
+                    Generating Content
+                </h3>
+                
+                <div class="progress-container-box">
+                    <div class="progress-stages">
+                        <div class="stage" id="stage-crawl">
+                            <div class="stage-icon" aria-hidden="true">
+                                <svg class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3s-4.5 4.03-4.5 9 2.015 9 4.5 9Z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m6.75 7.5 3 2.25-3 2.25m4.5 0h3m-9 8.25h18" />
+                                </svg>
+                            </div>
+                            <div class="stage-content">
+                                <div class="stage-title">Web Crawling</div>
+                                <div class="stage-detail" id="crawl-detail">Initializing browser...</div>
+                            </div>
+                        </div>
+                        
+                        <div class="stage" id="stage-analyze">
+                            <div class="stage-icon" aria-hidden="true">
+                                <svg class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.125C8.25 5.004 9.004 5.25 9.75 5.25h4.5c.746 0 1.5-.246 1.5-1.125V3M8.25 3a2.25 2.25 0 0 0-2.25 2.25v13.5a2.25 2.25 0 0 0 2.25 2.25h7.5a2.25 2.25 0 0 0 2.25-2.25V5.25A2.25 2.25 0 0 0 15.75 3M8.25 3h7.5M9 12.75h6m-6 3h4.5" />
+                                </svg>
+                            </div>
+                            <div class="stage-content">
+                                <div class="stage-title">AI Analysis</div>
+                                <div class="stage-detail" id="analyze-detail">Waiting to start...</div>
+                            </div>
+                        </div>
+                        
+                        <div class="stage" id="stage-generate">
+                            <div class="stage-icon" aria-hidden="true">
+                                <svg class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0h-9m9 0V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25" />
+                                </svg>
+                            </div>
+                            <div class="stage-content">
+                                <div class="stage-title">Slide Generation</div>
+                                <div class="stage-detail" id="generate-detail">Waiting to start...</div>
+                            </div>
+                        </div>
+                        
+                        <div class="stage" id="stage-email">
+                            <div class="stage-icon" aria-hidden="true">
+                                <svg class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                                </svg>
+                            </div>
+                            <div class="stage-content">
+                                <div class="stage-title">Email Generation</div>
+                                <div class="stage-detail" id="email-detail">Waiting to start...</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <!-- Results Container -->
+                <div id="result"></div>
+                
+                <!-- Investor Research Results -->
+                <div id="investorResultSection" class="investor-result-section" style="display: none;">
+                    <h3 class="investor-header">
+                        <span aria-hidden="true"></span>
+                        Investor Research Results
+                    </h3>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Key Insights (10-12 items)</label>
+                        <textarea 
+                            id="investorInsights" 
+                            class="form-textarea investor-insights"
+                            rows="15"
+                            readonly
+                            placeholder="Investor insights will appear here..."
+                        ></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Email Section -->
+            <div id="emailSection" class="email-section">
+                
+                <div class="form-group">
+                    <label for="recipientEmail" class="form-label">Recipient Email</label>
+                    <input 
+                        type="email" 
+                        id="recipientEmail" 
+                        class="form-input"
+                        placeholder="recipient@company.com" 
+                        required
+                        autocomplete="email"
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="ccEmails" class="form-label">CC Email(s) <span class="optional-label">(Optional)</span></label>
+                    <input 
+                        type="text" 
+                        id="ccEmails" 
+                        class="form-input"
+                        placeholder="cc@company.com, cc2@company.com" 
+                        autocomplete="email"
+                    >
+                    <small class="form-hint">Separate multiple emails with commas</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="emailSubject" class="form-label">Subject Line (Editable)</label>
+                    <input 
+                        type="text" 
+                        id="emailSubject" 
+                        class="form-input"
+                        placeholder="Email subject will appear here..."
+                        required
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="emailContent" class="form-label">Email Content (Editable)</label>
+                    <textarea 
+                        id="emailContent" 
+                        class="form-textarea"
+                        placeholder="Email content will appear here..."
+                        rows="12"
+                    ></textarea>
+                </div>
+                
+                <button type="button" class="btn btn-secondary btn-full" id="sendEmailBtn">
+                    <span id="emailBtnText">
+                        Send Email</span>
+                    <span class="spinner" style="display: none;" aria-hidden="true"></span>
+                </button>
+                
+                <div id="emailResult"></div>
+                </div>
+            </div>
+                    </div>
+                </div>
+
+                <!-- Finder Tab Content -->
+                <div class="tab-content" id="finderContent">
+                    <div class="main-card">
+                        <div class="finder-container">
+                            <!-- Query Input Stage -->
+                            <div class="finder-stage" id="queryStage">
+                                <div class="form-group">
+                                    <label class="form-label" for="finderQuery">What leads are you looking for?</label>
+                                    <textarea 
+                                        id="finderQuery" 
+                                        class="form-textarea finder-query" 
+                                        placeholder="Example: Find CISOs of series A/B tech startups based in the bay area, including their emails and company info"
+                                        rows="4"
+                                    ></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="finderLeadCount">How many leads do you want?</label>
+                                    <input 
+                                        type="number" 
+                                        id="finderLeadCount" 
+                                        class="form-input" 
+                                        placeholder="50" 
+                                        min="1" 
+                                        max="200" 
+                                        value="50"
+                                    />
+                                </div>
+                                <button type="button" class="btn btn-primary" id="analyzeQueryBtn">
+                                    <span id="analyzeQueryBtnText">Analyze Query</span>
+                                    <span class="spinner" style="display: none;"></span>
+                                </button>
+                            </div>
+
+                            <!-- Clarification Questions Stage -->
+                            <div class="finder-stage" id="clarificationStage" style="display: none;">
+                                <h3 class="stage-title">A few quick questions to clarify:</h3>
+                                <div id="clarificationQuestions" class="clarification-list">
+                                    <!-- Questions will be populated dynamically -->
+                                </div>
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-primary" id="submitClarificationBtn">
+                                        Continue with Search
+                                    </button>
+                                    <button type="button" class="btn btn-secondary" id="skipClarificationBtn">
+                                        Skip & Use Original Query
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Search Strategy Stage -->
+                            <div class="finder-stage" id="strategyStage" style="display: none;">
+                                <h3 class="stage-title">Search Strategy</h3>
+                                <div class="strategy-overview" id="strategyOverview">
+                                    <!-- Strategy details will be populated -->
+                                </div>
+                                <div class="csv-schema-preview" id="csvSchemaPreview">
+                                    <!-- CSV schema preview will be shown -->
+                                </div>
+                                <button type="button" class="btn btn-primary btn-large" id="executeSearchBtn">
+                                    <span id="executeSearchBtnText">Start Lead Search</span>
+                                    <span class="spinner" style="display: none;"></span>
+                                </button>
+                            </div>
+
+                            <!-- Search Progress Stage -->
+                            <div class="finder-stage" id="progressStage" style="display: none;">
+                                <h3 class="stage-title">Finding Your Leads...</h3>
+                                <div class="progress-container">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" id="progressFill"></div>
+                                    </div>
+                                    <div class="progress-text" id="progressText">Initializing search...</div>
+                                </div>
+                                <div class="worker-status" id="workerStatus">
+                                    <!-- Worker progress will be shown here -->
+                                </div>
+                            </div>
+
+                            <!-- Results Stage -->
+                            <div class="finder-stage" id="resultsStage" style="display: none;">
+                                <h3 class="stage-title">Search Complete!</h3>
+                                <div class="results-summary" id="resultsSummary">
+                                    <!-- Results summary will be shown -->
+                                </div>
+                                <div class="results-actions">
+                                    <button type="button" class="btn btn-primary" id="downloadCsvBtn">
+                                        <span class="btn-icon">
+                                            <svg class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                                            </svg>
+                                        </span>
+                                        Download CSV
+                                    </button>
+                                    <button type="button" class="btn btn-secondary" id="previewCsvBtn">
+                                        <span class="btn-icon">
+                                            <svg class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                            </svg>
+                                        </span>
+                                        Preview Results
+                                    </button>
+                                    <button type="button" class="btn btn-secondary" id="newSearchBtn">
+                                        <span class="btn-icon">
+                                            <svg class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                                            </svg>
+                                        </span>
+                                        New Search
+                                    </button>
+                                </div>
+                                <div class="csv-preview-container" id="csvPreviewContainer" style="display: none;">
+                                    <!-- CSV preview table will be shown here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Batch Processing Tab Content -->
+                <div class="tab-content" id="batchContent">
+                    <div class="main-card">
+                        <div class="batch-container">
+                            <!-- Upload Stage -->
+                            <div class="batch-stage" id="uploadStage">
+                                <div class="batch-header">
+                                    <h2 class="batch-title">CSV Batch Processing</h2>
+                                    <p class="batch-description">Upload a CSV file to process multiple outreach campaigns at once</p>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Sector Focus</label>
+                                    <div class="radio-group">
+                                        <label class="radio-option">
+                                            <input type="radio" name="batch_sector" value="infra" id="batch_sector_infra" checked>
+                                            <span class="radio-custom"></span>
+                                            <span class="radio-label">Infra</span>
+                                        </label>
+                                        <label class="radio-option">
+                                            <input type="radio" name="batch_sector" value="security" id="batch_sector_security">
+                                            <span class="radio-custom"></span>
+                                            <span class="radio-label">Security</span>
+                                        </label>
+                                        <label class="radio-option">
+                                            <input type="radio" name="batch_sector" value="healthcare" id="batch_sector_healthcare">
+                                            <span class="radio-custom"></span>
+                                            <span class="radio-label">Healthcare</span>
+                                        </label>
+                                        <label class="radio-option">
+                                            <input type="radio" name="batch_sector" value="finance" id="batch_sector_finance">
+                                            <span class="radio-custom"></span>
+                                            <span class="radio-label">Finance</span>
+                                        </label>
+                                        <label class="radio-option">
+                                            <input type="radio" name="batch_sector" value="gtm" id="batch_sector_gtm">
+                                            <span class="radio-custom"></span>
+                                            <span class="radio-label">GTM</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="batch-upload-section">
+                                    <div class="upload-area" id="batchUploadArea">
+                                        <div class="upload-icon">
+                                            <svg class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" />
+                                            </svg>
+                                        </div>
+                                        <h3 id="batchUploadTitle">Upload CSV File</h3>
+                                        <p id="batchUploadDescription">Drag and drop your CSV file here, or click to browse</p>
+                                        <small id="batchUploadHint">Supported format: CSV with 'company' and 'email' columns</small>
+                                        <input type="file" id="batchCsvFile" accept=".csv" style="display: none;">
+                                    </div>
+                                </div>
+                                
+                                <div class="csv-validation-container" id="batchCsvValidation" style="display: none;">
+                                    <div class="validation-summary" id="batchValidationSummary">
+                                        <!-- Validation summary will be populated by JavaScript -->
+                                    </div>
+                                    
+                                    <div class="validation-details" id="batchValidationDetails">
+                                        <!-- Validation details will be populated by JavaScript -->
+                                    </div>
+                                    
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label">Batch Processing Type</label>
+                                        <div class="radio-group">
+                                            <label class="radio-option">
+                                                <input type="radio" name="batch_type" value="founder" id="batch_founder" checked>
+                                                <span class="radio-custom"></span>
+                                                <span class="radio-label">Founder Outreach</span>
+                                            </label>
+                                            <label class="radio-option">
+                                                <input type="radio" name="batch_type" value="investor" id="batch_investor">
+                                                <span class="radio-custom"></span>
+                                                <span class="radio-label">Investor Research</span>
+                                            </label>
+                                            <label class="radio-option">
+                                                <input type="radio" name="batch_type" value="any" id="batch_any">
+                                                <span class="radio-custom"></span>
+                                                <span class="radio-label">Any Outreach</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="batch-actions">
+                                        <button type="button" class="btn btn-primary" id="submitBatchBtn" disabled>
+                                            <span class="btn-icon">
+                                                <svg class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+                                                </svg>
+                                            </span>
+                                            <span id="batchSubmitText">Proceed with X valid entries</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Batch Jobs List -->
+                            <div class="batch-stage" id="batchJobsStage">
+                                <div class="batch-header">
+                                    <h3 class="batch-subtitle">Your Batch Jobs</h3>
+                                    <div class="batch-filters">
+                                        <select id="batchStatusFilter" class="filter-select">
+                                            <option value="all">All Statuses</option>
+                                            <option value="pending">Pending</option>
+                                            <option value="submitted">Submitted</option>
+                                            <option value="in_progress">In Progress</option>
+                                            <option value="completed">Completed</option>
+                                            <option value="failed">Failed</option>
+                                        </select>
+                                        <button id="refreshBatchJobs" class="filter-refresh-btn">
+                                            <svg class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                                            </svg>
+                                            Refresh
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="batch-jobs-list" id="mainBatchJobsList">
+                                    <div class="batch-jobs-empty">
+                                        <div class="empty-icon">
+                                            <svg class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                                            </svg>
+                                        </div>
+                                        <h4>No batch jobs yet</h4>
+                                        <p>Upload a CSV file above to create your first batch job</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Extended Header Bar - positioned after main content for proper stacking -->
+    <section class="extended-header">
+        <div class="extended-header-content">
+            <div class="extended-header-left">
+                <!-- Tab Navigation in Header -->
+                <div class="header-tab-navigation">
+                    <div class="header-tab active" id="generatorHeaderTab" data-tab="generator">
+                        <span class="header-tab-text">Outreach Deck Generator</span>
+                    </div>
+                    <div class="header-tab" id="finderHeaderTab" data-tab="finder">
+                        <span class="header-tab-text">Finder (Beta)</span>
+                    </div>
+                    <div class="header-tab" id="batchHeaderTab" data-tab="batch">
+                        <span class="header-tab-text">Batch Processing</span>
+                    </div>
+                </div>
+            </div>
+            <div class="extended-header-right">
+                <!-- Header descriptions removed as requested -->
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Project Creation Modal -->
+    <div class="modal-overlay" id="projectModalOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Create New Project</h3>
+                <button class="modal-close" id="closeProjectModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="projectForm">
+                    <div class="form-group">
+                        <label class="form-label" for="projectNameInput">Project Name</label>
+                        <input type="text" id="projectNameInput" class="form-input" placeholder="Enter project name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="projectDescInput">Description (Optional)</label>
+                        <textarea id="projectDescInput" class="form-textarea" placeholder="Enter project description" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="projectColorInput">Color</label>
+                        <div class="color-picker">
+                            <input type="color" id="projectColorInput" class="color-input" value="#4FD1C5">
+                            <div class="color-presets">
+                                <button type="button" class="color-preset" data-color="#4FD1C5"></button>
+                                <button type="button" class="color-preset" data-color="#FF6B7A"></button>
+                                <button type="button" class="color-preset" data-color="#B794F4"></button>
+                                <button type="button" class="color-preset" data-color="#FFD93D"></button>
+                                <button type="button" class="color-preset" data-color="#48BB78"></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancelProjectBtn">Cancel</button>
+                <button type="submit" class="btn btn-primary" id="createProjectSubmit">Create Project</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/finder.js') }}"></script>
+    
+    <!-- Performance and SEO -->
+    <script>
+        // Preload critical resources
+        const link = document.createElement('link');
+        link.rel = 'dns-prefetch';
+        link.href = '//api.anthropic.com';
+        document.head.appendChild(link);
+    </script>
+</body>
+</html> 

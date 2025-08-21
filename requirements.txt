@@ -1,0 +1,57 @@
+# Core web framework
+flask>=2.3.0
+
+# Production WSGI server
+gunicorn>=21.2.0
+
+# AI and language models
+anthropic>=0.40.0
+openai>=1.0.0    
+
+# Web scraping and content extraction
+playwright>=1.40.0
+trafilatura>=1.6.0
+beautifulsoup4>=4.12.0
+
+# PowerPoint generation
+python-pptx>=0.6.21
+
+# Text processing and tokenization
+tiktoken>=0.5.0
+lxml_html_clean>=0.1.0
+
+# Retry and utility libraries
+tenacity>=8.2.0
+tqdm>=4.65.0
+
+# Remote browser automation
+browserbase>=0.1.0
+
+# Production monitoring and logging
+python-dotenv>=1.0.0
+flask_session>=0.5.0
+flask-sqlalchemy>=3.0.0
+
+# Microsoft authentication
+msal>=1.24.0
+
+# Windows PowerPoint automation (Windows only)
+# pywin32>=306  # Uncomment if running on Windows
+
+# Gevent for asynchronous requests
+gevent>=24.2.0
+
+# PostgreSQL database
+psycopg2-binary>=2.9.0
+
+
+# Optional AI navigation (install separately if needed)
+# stagehand-python>=0.1.0
+
+# Email integration (currently using local Outlook via AppleScript)
+# O365>=2.0.0
+
+# Standard library packages (no installation needed):
+# subprocess, os, uuid, json, threading, queue, time, pathlib
+# datetime, re, smtplib, email, argparse, asyncio, sys
+# dataclasses, typing, urllib.parse, functools, builtins, base64

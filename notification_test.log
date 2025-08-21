@@ -1,0 +1,1087 @@
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 08:26:50,747] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5100
+ * Running on http://192.168.146.165:5100
+Press CTRL+C to quit
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 08:26:51,537] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+192.168.146.165 - - [28/Jul/2025 08:26:57] "HEAD / HTTP/1.1" 200 -
+ * Detected change in '/Users/purabseth/intern/app.py.tmp.65811.1753716452070', reloading
+ * Detected change in '/Users/purabseth/intern/app.py', reloading
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 08:27:34,130] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+192.168.146.165 - - [28/Jul/2025 08:27:37] "GET /test-notifications HTTP/1.1" 200 -
+ * Detected change in '/Users/purabseth/intern/postgres_session.py.tmp.65811.1753716843629', reloading
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 08:34:05,554] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/app.py.tmp.65811.1753716868020', reloading
+ * Detected change in '/Users/purabseth/intern/app.py', reloading
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 08:34:29,541] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/config.py.tmp.65811.1753716878958', reloading
+ * Detected change in '/Users/purabseth/intern/config.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 08:34:40,435] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/config.py.tmp.65811.1753716885430', reloading
+ * Detected change in '/Users/purabseth/intern/config.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 08:34:46,150] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/postgres_session.py.tmp.65811.1753716913614', reloading
+ * Detected change in '/Users/purabseth/intern/postgres_session.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 08:35:15,295] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/app.py.tmp.65811.1753716926550', reloading
+ * Detected change in '/Users/purabseth/intern/app.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 08:35:28,441] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/postgres_session.py.tmp.65811.1753717396544', reloading
+ * Detected change in '/Users/purabseth/intern/postgres_session.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 08:43:18,272] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/postgres_session.py.tmp.65811.1753717404516', reloading
+ * Detected change in '/Users/purabseth/intern/postgres_session.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 08:43:26,184] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/postgres_session.py.tmp.65811.1753717412837', reloading
+ * Detected change in '/Users/purabseth/intern/postgres_session.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 08:43:34,040] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/postgres_session.py.tmp.65811.1753717425963', reloading
+ * Detected change in '/Users/purabseth/intern/postgres_session.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 08:43:47,062] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/app.py.tmp.65811.1753717436178', reloading
+ * Detected change in '/Users/purabseth/intern/app.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 08:43:57,991] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/postgres_session.py.tmp.65811.1753717605684', reloading
+ * Detected change in '/Users/purabseth/intern/postgres_session.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 08:46:47,147] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/postgres_session.py.tmp.65811.1753717616820', reloading
+ * Detected change in '/Users/purabseth/intern/postgres_session.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 08:46:58,453] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/postgres_session.py.tmp.65811.1753717631547', reloading
+ * Detected change in '/Users/purabseth/intern/postgres_session.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 08:47:13,299] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/postgres_session.py.tmp.65811.1753717639990', reloading
+ * Detected change in '/Users/purabseth/intern/postgres_session.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 08:47:20,999] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/app.py.tmp.65811.1753717650546', reloading
+ * Detected change in '/Users/purabseth/intern/app.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 08:47:31,969] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/app.py.tmp.65811.1753717658575', reloading
+ * Detected change in '/Users/purabseth/intern/app.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 08:47:39,667] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/postgres_session.py.tmp.65811.1753717665476', reloading
+ * Detected change in '/Users/purabseth/intern/postgres_session.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 08:47:46,417] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/app.py.tmp.65811.1753718041742', reloading
+ * Detected change in '/Users/purabseth/intern/app.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 08:54:02,885] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/app.py.tmp.65811.1753718119007', reloading
+ * Detected change in '/Users/purabseth/intern/app.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 08:55:20,378] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/app.py.tmp.65811.1753718128500', reloading
+ * Detected change in '/Users/purabseth/intern/app.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 08:55:30,189] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/website_to_ppt.py.tmp.65811.1753728864991', reloading
+ * Detected change in '/Users/purabseth/intern/website_to_ppt.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 11:54:26,867] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/website_to_ppt.py.tmp.65811.1753728869477', reloading
+ * Detected change in '/Users/purabseth/intern/website_to_ppt.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 11:54:30,629] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/website_to_ppt.py.tmp.65811.1753728880528', reloading
+ * Detected change in '/Users/purabseth/intern/website_to_ppt.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 11:54:41,352] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/website_to_ppt.py.tmp.65811.1753728885993', reloading
+ * Detected change in '/Users/purabseth/intern/website_to_ppt.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 11:54:47,623] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/website_to_ppt.py.tmp.65811.1753728890601', reloading
+ * Detected change in '/Users/purabseth/intern/website_to_ppt.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 11:54:51,844] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/website_to_ppt.py.tmp.65811.1753728895348', reloading
+ * Detected change in '/Users/purabseth/intern/website_to_ppt.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 11:54:56,635] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/website_to_ppt.py.tmp.65811.1753728916511', reloading
+ * Detected change in '/Users/purabseth/intern/website_to_ppt.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 11:55:17,698] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/website_to_ppt.py.tmp.65811.1753728923393', reloading
+ * Detected change in '/Users/purabseth/intern/website_to_ppt.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 11:55:24,528] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/app.py.tmp.65811.1753729935727', reloading
+ * Detected change in '/Users/purabseth/intern/app.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 12:12:17,250] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/app.py.tmp.65811.1753729951293', reloading
+ * Detected change in '/Users/purabseth/intern/app.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 12:12:32,202] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/app.py.tmp.65811.1753729961386', reloading
+ * Detected change in '/Users/purabseth/intern/app.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 12:12:42,445] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/app.py.tmp.65811.1753729971657', reloading
+ * Detected change in '/Users/purabseth/intern/app.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 12:12:53,305] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/app.py.tmp.65811.1753729984023', reloading
+ * Detected change in '/Users/purabseth/intern/app.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 12:13:05,185] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/postgres_db.py.tmp.65811.1753733661374', reloading
+ * Detected change in '/Users/purabseth/intern/postgres_db.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 13:14:22,826] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/postgres_db.py.tmp.65811.1753733767490', reloading
+ * Detected change in '/Users/purabseth/intern/postgres_db.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 13:16:08,851] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/app.py.tmp.65811.1753733785564', reloading
+ * Detected change in '/Users/purabseth/intern/app.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 13:16:27,562] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/app.py.tmp.65811.1753734757622', reloading
+ * Detected change in '/Users/purabseth/intern/app.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 13:32:39,547] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/app.py.tmp.65811.1753734763232', reloading
+ * Detected change in '/Users/purabseth/intern/app.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 13:32:44,527] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/app.py.tmp.65811.1753734770391', reloading
+ * Detected change in '/Users/purabseth/intern/app.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 13:32:51,808] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/app.py.tmp.65811.1753734779734', reloading
+ * Detected change in '/Users/purabseth/intern/app.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 13:33:01,155] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/app.py.tmp.65811.1753734856515', reloading
+ * Detected change in '/Users/purabseth/intern/app.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+DATABASE_URL not found in environment variables
+PostgreSQL module loaded but connection failed
+[2025-07-28 13:34:17,465] INFO in config: TEMP_DIR = /Users/purabseth/intern/generated
+PostgreSQL not available for health_check
+PostgreSQL not available for health_check
+ * Debugger is active!
+ * Debugger PIN: 201-023-801
+ * Detected change in '/Users/purabseth/intern/app.py.tmp.65811.1753734996382', reloading
+ * Detected change in '/Users/purabseth/intern/app.py', reloading
+[SESSION] Using filesystem session storage
+[ERROR] PostgreSQL connection failed: PostgreSQL not available
+[WARNING] PostgreSQL database not available
+[INFO] Using PostgreSQL for persistent storage - data loaded on demand per user
+
+[STARTUP] Internal Tooling - Outreach PowerPoint & Email Generator
+[INFO] Open http://localhost:5100 in your browser
+[EMAIL] Email sending: Disabled
+[POSTGRES] Not connected - PostgreSQL not available
+
+[BATCH] Starting batch status monitor...
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+ * Restarting with watchdog (fsevents)
+  File "/Users/purabseth/intern/app.py", line 754
+    postgres_db.update_batch_job_status(
+IndentationError: unexpected indent
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'
+[BATCH] Monitor error: 'NoneType' object has no attribute 'getconn'

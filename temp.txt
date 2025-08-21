@@ -1,0 +1,81 @@
+================================================================================
+INVESTOR EMAIL PROMPT TO CLAUDE
+================================================================================
+
+SYSTEM PROMPT:
+----------------------------------------
+
+You are writing a professional outreach email from Westbridge Capital to an investor. 
+Based on the investor research insights provided, create a compelling and personalized email that:
+
+1. Shows genuine understanding of their investment focus and recent activities
+2. References specific insights from the research to demonstrate thoroughness
+3. Clearly articulates why Westbridge is reaching out and the potential collaboration
+4. Highlights relevant portfolio companies or investment areas that align with their interests
+5. Maintains a professional yet personable tone suitable for investor-to-investor communication
+6. Uses additional web search to find recent developments or news about the investor
+
+The email should feel like it comes from someone who has done extensive research and sees real synergy potential. Use web search to find:
+- Recent fund announcements or portfolio additions
+- Speaking engagements, interviews, or podcast appearances
+- Articles or blog posts they've written recently
+- Industry events they've attended or sponsored
+- Any recent quotes or public statements about market trends
+
+Structure the email professionally:
+1. Personal greeting using their name
+2. Brief introduction of Westbridge and why you're reaching out
+3. Specific insights that caught your attention (reference 2-3 key points from research)
+4. Clear collaboration opportunity or value proposition
+5. Mention of relevant Westbridge portfolio companies that might interest them
+6. Call to action for a meeting or call
+7. Professional closing
+
+Keep the tone respectful and peer-to-peer, as this is investor-to-investor communication.
+
+DO NOT OUTPUT ANYTHING OTHER THAN THE EMAIL. NO OTHER WORDS, TEXT, NOTHING.
+
+
+USER CONTENT:
+----------------------------------------
+
+Generate a personalized outreach email to an investor based on research insights:
+
+Investor Name: Justin Liu
+Fund Name: Sapphire Ventures
+Outreach Context: He is a big cybersec investor, good recent investments in cyera, and huntress. Wanna impress him big time. 
+
+Research Insights:
+Based on my research, here are the specific, actionable insights about Justin Liu from Sapphire Ventures that would be valuable for personalized outreach:
+
+• He is actively involved with Sapphire's investments in Netskope, Huntress, DataRobot, Tetrate, & UJET - demonstrating his hands-on involvement beyond just deal sourcing.
+
+• He co-authored a cybersecurity evolution blog post noting "Huntress is bundling managed security capabilities (endpoint security, security awareness training, etc.) on behalf of service providers serving SMBs" - showing his deep understanding of the SMB security rebundling trend.
+
+• Sapphire Ventures co-led Cyera's massive $300M Series D financing round - one of the largest data security rounds ever, highlighting his involvement in marquee deals.
+
+• Justin joined Sapphire Ventures as a member of the investment team in 2021 and focuses on identifying and evaluating growth-stage investment opportunities in infrastructure software, cybersecurity, and enterprise SaaS - establishing his core investment thesis.
+
+• Justin joined Sapphire from Bain & Company where he worked as a management consultant with leading enterprise technology companies and software investors in the San Francisco Bay Area - his consulting background brings operational perspective.
+
+• Justin graduated Phi Beta Kappa and magna cum laude from the University of California, Berkeley with a B.S. in Business Administration - top academic honors demonstrating excellence.
+
+• During college, he worked at Square as a business development intern focused on expansion strategy and with Twitch's Business Operations team focusing on corporate strategy and financial modeling, plus worked on consulting projects with Google, Square, and Airbnb through Berkeley Business Society - early exposure to top-tier tech companies.
+
+• He has deep knowledge of major cybersecurity incidents, referencing how "REvil's ransomware attack through Kaseya impacted 1,500 companies in minutes" - shows he stays current on threat landscape evolution.
+
+• His cybersecurity blog revealed insider knowledge: "One enterprise CISO we spoke with revealed that their organization was using Okta, CyberArk and ForgeRock across their business units, but planned to consolidate to just one of these vendors in 2023" - demonstrating access to enterprise decision-makers.
+
+• His colleague Casber Wang sits on the boards of Cyera, Huntress, JumpCloud, Rewst, StarTree, and Zesty - showing the caliber of board-level relationships within his immediate network.
+
+• He has insight into identity and device management consolidation, noting "JumpCloud, a Sapphire portfolio company, is leading the charge to unify identity, access, and device management into one platform for channel partners and SMBs" - understanding convergence in the identity space.
+
+• His investment thesis is backed by compelling data: "SMBs represent 99.9% of all U.S. businesses and 400 million businesses globally while being the target of 43% of all cyberattacks. Most of these businesses are severely underprotected" - showing his data-driven approach to market sizing.
+
+Please use these insights to craft a compelling, personalized email that demonstrates deep research and understanding of this investor's focus areas and recent activities. Use additional web search to find recent developments or news about the investor to make the email even more current and relevant.
+
+
+MODEL: claude-sonnet-4-20250514
+MAX_TOKENS: 8192
+WEB_SEARCH: Max 10 uses
+

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Westbridge Internal Tooling</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        /* Reset for login page */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-x: hidden;
+        }
+        
+        .login-container {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-primary);
+            font-family: var(--font-mono);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-container::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 1px 1px, rgba(255,255,255,0.02) 1px, transparent 0);
+            background-size: 20px 20px;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .login-card {
+            background: var(--bg-deeper);
+            border: 1px solid var(--bg-secondary);
+            border-radius: 12px;
+            padding: 4rem 3rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 480px;
+            width: 100%;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .login-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                var(--coral-pink) 25%, 
+                var(--electric-purple) 25% 50%, 
+                var(--acid-yellow) 50% 75%, 
+                var(--cyan-blue) 75%);
+            border-radius: 12px 12px 0 0;
+        }
+
+        .login-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2.5rem;
+            border: 2px solid var(--cyan-blue);
+            border-radius: 16px;
+            padding: 1.5rem;
+            background: var(--bg-terminal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .login-logo:hover {
+            border-color: var(--electric-purple);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(79, 209, 197, 0.2);
+        }
+
+        .login-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .login-title {
+            font-size: 2.25rem;
+            font-weight: 900;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-family: var(--font-mono);
+            letter-spacing: 0.02em;
+            line-height: 1.2;
+        }
+
+        .login-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            margin-bottom: 3rem;
+            font-family: var(--font-mono);
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .login-btn {
+            background: var(--mint-green);
+            color: var(--text-on-color);
+            border: 2px solid var(--mint-green-light);
+            border-radius: 8px;
+            padding: 1.25rem 2.5rem;
+            font-size: 1.125rem;
+            font-weight: 700;
+            font-family: var(--font-mono);
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            min-height: 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .login-btn:hover {
+            background: var(--mint-green-light);
+            border-color: var(--cyan-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(72, 187, 120, 0.25);
+        }
+
+        .login-btn:hover::before {
+            left: 100%;
+        }
+
+        .login-btn:active {
+            transform: translateY(0);
+        }
+
+        .security-note {
+            margin-top: 2.5rem;
+            padding: 1rem 1.5rem;
+            background: rgba(183, 148, 244, 0.05);
+            border: 1px solid rgba(183, 148, 244, 0.2);
+            border-radius: 8px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .security-note::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: var(--electric-purple);
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+
+        .brand-tagline {
+            color: var(--electric-purple);
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .login-options {
+            margin: 2rem 0 1.5rem 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .stay-logged-in {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            gap: 0.75rem;
+            transition: color 0.3s ease;
+        }
+
+        .stay-logged-in:hover {
+            color: var(--text-primary);
+        }
+
+        .stay-logged-in input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .checkmark {
+            position: relative;
+            width: 18px;
+            height: 18px;
+            background: var(--bg-terminal);
+            border: 2px solid var(--bg-secondary);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stay-logged-in:hover .checkmark {
+            border-color: var(--cyan-blue);
+        }
+
+        .stay-logged-in input:checked ~ .checkmark {
+            background: var(--mint-green);
+            border-color: var(--mint-green-light);
+        }
+
+        .checkmark::after {
+            content: '';
+            position: absolute;
+            display: none;
+            width: 5px;
+            height: 9px;
+            border: solid var(--text-on-color);
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            top: 1px;
+        }
+
+        .stay-logged-in input:checked ~ .checkmark::after {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .login-container {
+                padding: 1rem;
+            }
+            
+            .login-card {
+                padding: 2.5rem 2rem;
+                max-width: 360px;
+            }
+            
+            .login-logo {
+                width: 100px;
+                height: 100px;
+                margin-bottom: 2rem;
+            }
+            
+            .login-title {
+                font-size: 1.75rem;
+            }
+            
+            .login-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2.5rem;
+            }
+            
+            .login-btn {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-logo">
+                <img src="{{ url_for('logo') }}" alt="Westbridge">
+            </div>
+            
+            <h1 class="login-title">WESTBRIDGE CAPITAL</h1>
+            <p class="login-subtitle">Executive Outreach Platform</p>
+            <div class="brand-tagline">Internal Tooling Suite</div>
+            
+            <div class="login-options">
+                <label class="stay-logged-in">
+                    <input type="checkbox" id="stayLoggedIn" checked>
+                    <span class="checkmark"></span>
+                    Stay logged in for 14 days
+                </label>
+            </div>
+            
+            <a href="/login" class="login-btn" id="loginBtn">
+                SIGN IN WITH MICROSOFT
+            </a>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginBtn = document.getElementById('loginBtn');
+            const stayLoggedInCheckbox = document.getElementById('stayLoggedIn');
+            
+            // Update login URL based on checkbox state
+            function updateLoginUrl() {
+                const baseUrl = '/login';
+                const stayLoggedIn = stayLoggedInCheckbox.checked;
+                loginBtn.href = `${baseUrl}?stay_logged_in=${stayLoggedIn}`;
+            }
+            
+            // Initialize URL
+            updateLoginUrl();
+            
+            // Update URL when checkbox changes
+            stayLoggedInCheckbox.addEventListener('change', updateLoginUrl);
+        });
+    </script>
+</body>
+</html> 

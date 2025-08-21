@@ -1,0 +1,6 @@
+.vercel
+
+# Clado API test scripts
+test_clado.py
+check_clado_results.py
+clado_results/

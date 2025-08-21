@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if task %}{{ task.outreach_type.title() }} Generation{% else %}History Item{% endif %} - Wello Internal Tooling</title>
+    <meta name="description" content="View detailed generation results">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <!-- Modern Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-left">
+                <div class="logo-section">
+                    <img src="{{ url_for('logo') }}" alt="Westbridge" class="logo">
+                    <div class="branding">
+                        <div class="brand-name">Wello</div>
+                        <div class="brand-subtitle">Generation Details</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="auth-section">
+                <div class="user-dropdown" id="userDropdown">
+                    <button class="user-dropdown-btn" id="userDropdownBtn">
+                        <span class="user-avatar"></span>
+                        <span class="user-name" id="userName">Loading...</span>
+                        <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <div class="user-dropdown-menu" id="userDropdownMenu">
+                        <a href="/" class="dropdown-item">
+                            <span class="dropdown-icon">
+                                <svg class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                                </svg>
+                            </span>
+                            Home
+                        </a>
+                        <a href="/analytics" class="dropdown-item">
+                            <span class="dropdown-icon">
+                                <svg class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
+                                </svg>
+                            </span>
+                            Analytics
+                        </a>
+                        <a href="/history" class="dropdown-item">
+                            <span class="dropdown-icon">
+                                <svg class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                </svg>
+                            </span>
+                            History
+                        </a>
+                        <hr class="dropdown-divider">
+                        <a href="/logout" class="dropdown-item logout">
+                            <span class="dropdown-icon">
+                                <svg class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9" />
+                                </svg>
+                            </span>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="history-item-layout">
+        <div class="history-item-container">
+            <div class="history-item-header">
+                <div class="history-nav">
+                    <a href="/history" class="back-link">
+                        <span class="back-arrow">←</span>
+                        Back to History
+                    </a>
+                </div>
+                
+                {% if error %}
+                    <div class="error-message">
+                        <h1>Error</h1>
+                        <p>{{ error }}</p>
+                    </div>
+                {% elif task %}
+                    <div class="task-header">
+                        <div class="task-title-section">
+                            <h1 class="task-title">{{ task.outreach_type.title() }} Generation</h1>
+                            <span class="status-badge status-{{ task.status.lower() }}">{{ task.status.title() }}</span>
+                        </div>
+                        <div class="task-meta">
+                            <div class="meta-item">
+                                <strong>Created:</strong> 
+                                {% if task.created_at %}
+                                    {% if task.created_at.strftime is defined %}
+                                        {{ task.created_at.strftime('%B %d, %Y at %I:%M %p') }}
+                                    {% else %}
+                                        {{ task.created_at }}
+                                    {% endif %}
+                                {% else %}
+                                    Unknown
+                                {% endif %}
+                            </div>
+                            <div class="meta-item">
+                                <strong>Task ID:</strong> <code>{{ task.task_id }}</code>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+
+            {% if task and task.task_data %}
+                <div class="task-content">
+                    <!-- Input Parameters -->
+                    <div class="content-section">
+                        <h2 class="section-title">Input Parameters</h2>
+                        <div class="params-grid">
+                            {% if task.outreach_type == 'founder' %}
+                                {% if task.task_data.url %}
+                                    <div class="param-item">
+                                        <label>Target Company Website:</label>
+                                        <div class="param-value">
+                                            <a href="{{ task.task_data.url }}" target="_blank" rel="noopener">{{ task.task_data.url }}</a>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                {% if task.task_data.sector %}
+                                    <div class="param-item">
+                                        <label>Sector:</label>
+                                        <div class="param-value">{{ task.task_data.sector.title() }}</div>
+                                    </div>
+                                {% endif %}
+                            {% elif task.outreach_type == 'investor' %}
+                                {% if task.task_data.investor_name %}
+                                    <div class="param-item">
+                                        <label>Investor Name:</label>
+                                        <div class="param-value">{{ task.task_data.investor_name }}</div>
+                                    </div>
+                                {% endif %}
+                                {% if task.task_data.fund_name %}
+                                    <div class="param-item">
+                                        <label>Fund Name:</label>
+                                        <div class="param-value">{{ task.task_data.fund_name }}</div>
+                                    </div>
+                                {% endif %}
+                                {% if task.task_data.outreach_context %}
+                                    <div class="param-item">
+                                        <label>Outreach Context:</label>
+                                        <div class="param-value">{{ task.task_data.outreach_context }}</div>
+                                    </div>
+                                {% endif %}
+                            {% elif task.outreach_type == 'any' %}
+                                {% if task.task_data.person_name %}
+                                    <div class="param-item">
+                                        <label>Person Name:</label>
+                                        <div class="param-value">{{ task.task_data.person_name }}</div>
+                                    </div>
+                                {% endif %}
+                                {% if task.task_data.organization %}
+                                    <div class="param-item">
+                                        <label>Organization:</label>
+                                        <div class="param-value">{{ task.task_data.organization }}</div>
+                                    </div>
+                                {% endif %}
+                                {% if task.task_data.outreach_request %}
+                                    <div class="param-item">
+                                        <label>Outreach Request:</label>
+                                        <div class="param-value">{{ task.task_data.outreach_request }}</div>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                            
+                            {% if task.task_data.recipient_email %}
+                                <div class="param-item">
+                                    <label>Recipient Email:</label>
+                                    <div class="param-value">{{ task.task_data.recipient_email }}</div>
+                                </div>
+                            {% endif %}
+                            {% if task.task_data.cc_recipients and task.task_data.cc_recipients|length > 0 %}
+                                <div class="param-item">
+                                    <label>CC:</label>
+                                    <div class="param-value">{{ task.task_data.cc_recipients|join(', ') }}</div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <!-- Generated Content -->
+                    {% if task.task_data.email_content %}
+                        <div class="content-section">
+                            <h2 class="section-title">Generated Email</h2>
+                            <div class="email-content">
+                                <div class="email-preview">
+                                    <pre>{{ task.task_data.email_content }}</pre>
+                                </div>
+                                <div class="email-actions">
+                                    <button onclick="copyToClipboard('email')" class="btn btn-secondary">Copy Email</button>
+                                    <button onclick="sendEmail()" class="btn btn-primary">Send Email</button>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if task.outreach_type == 'investor' and task.task_data.investor_insights %}
+                        <div class="content-section">
+                            <h2 class="section-title">Investor Insights</h2>
+                            <div class="insights-content">
+                                <pre>{{ task.task_data.investor_insights }}</pre>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <!-- PowerPoint Download -->
+                    {% if task.outreach_type == 'founder' and task.status == 'completed' %}
+                        <div class="content-section">
+                            <h2 class="section-title">Generated Presentation</h2>
+                            <div class="presentation-download">
+                                <div class="download-info">
+                                    <div class="download-icon">📄</div>
+                                    <div class="download-details">
+                                        <h3>PowerPoint Presentation</h3>
+                                        <p>Generated presentation tailored for {{ task.task_data.sector or 'the target company' }}</p>
+                                    </div>
+                                </div>
+                                <div class="download-actions">
+                                    <a href="/download-ppt/{{ task.task_id }}" class="btn btn-primary" download>
+                                        Download PPT
+                                    </a>
+                                    <a href="/view-ppt/{{ task.task_id }}" class="btn btn-secondary" target="_blank">
+                                        Preview Online
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <!-- Processing Details -->
+                    {% if task.task_data.processing_time or task.task_data.pages_analyzed %}
+                        <div class="content-section">
+                            <h2 class="section-title">Processing Details</h2>
+                            <div class="processing-stats">
+                                {% if task.task_data.processing_time %}
+                                    <div class="stat-item">
+                                        <label>Processing Time:</label>
+                                        <div class="stat-value">{{ task.task_data.processing_time }}s</div>
+                                    </div>
+                                {% endif %}
+                                {% if task.task_data.pages_analyzed %}
+                                    <div class="stat-item">
+                                        <label>Pages Analyzed:</label>
+                                        <div class="stat-value">{{ task.task_data.pages_analyzed }}</div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+
+            <!-- Action Buttons -->
+            <div class="history-item-actions">
+                <a href="/history" class="action-btn secondary">
+                    <div class="btn-content">
+                        <div class="btn-title">Back to History</div>
+                        <div class="btn-subtitle">View all generations</div>
+                    </div>
+                </a>
+                <a href="/" class="action-btn primary">
+                    <div class="btn-content">
+                        <div class="btn-title">New Generation</div>
+                        <div class="btn-subtitle">Create similar outreach</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script>
+        // Copy to clipboard functionality
+        async function copyToClipboard(type) {
+            let content = '';
+            if (type === 'email') {
+                const emailContent = document.querySelector('.email-preview pre');
+                content = emailContent ? emailContent.textContent : '';
+            }
+            
+            if (content) {
+                try {
+                    await navigator.clipboard.writeText(content);
+                    showNotification('Content copied to clipboard!', 'success');
+                } catch (error) {
+                    console.error('Failed to copy:', error);
+                    showNotification('Failed to copy to clipboard', 'error');
+                }
+            }
+        }
+
+        // Send email functionality (placeholder)
+        function sendEmail() {
+            showNotification('Email sending feature coming soon!', 'info');
+        }
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.textContent = message;
+            
+            // Style the notification
+            Object.assign(notification.style, {
+                position: 'fixed',
+                top: '20px',
+                right: '20px',
+                padding: '12px 20px',
+                borderRadius: '8px',
+                backgroundColor: type === 'success' ? '#48BB78' : type === 'error' ? '#FF6B7A' : '#4FD1C5',
+                color: 'white',
+                fontWeight: '500',
+                zIndex: '9999',
+                transform: 'translateX(100%)',
+                transition: 'transform 0.3s ease'
+            });
+            
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            // Auto-hide after 3 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 3000);
+        }
+
+        // Setup dropdown functionality (reused from other pages)
+        document.addEventListener('DOMContentLoaded', function() {
+            const userDropdown = document.getElementById('userDropdown');
+            const userDropdownBtn = document.getElementById('userDropdownBtn');
+            const userDropdownMenu = document.getElementById('userDropdownMenu'); 
+            const userName = document.getElementById('userName');
+
+            if (userDropdownBtn) {
+                userDropdownBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    userDropdownMenu.classList.toggle('show');
+                });
+            }
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function() {
+                if (userDropdownMenu) {
+                    userDropdownMenu.classList.remove('show');
+                }
+            });
+
+            // Load user info
+            loadUserInfo();
+        });
+
+        async function loadUserInfo() {
+            try {
+                const response = await fetch('/api/user-info');
+                if (response.ok) {
+                    const userInfo = await response.json();
+                    const userName = document.getElementById('userName');
+                    const userDropdown = document.getElementById('userDropdown');
+                    
+                    if (userName && userInfo.name) {
+                        userName.textContent = userInfo.name;
+                        userDropdown.style.display = 'block';
+                    }
+                }
+            } catch (error) {
+                console.error('Failed to load user info:', error);
+            }
+        }
+    </script>
+</body>
+</html>

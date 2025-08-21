@@ -1,0 +1,20 @@
+{
+  "timestamp": "2025-07-30T01:16:57.086127",
+  "linkedin_url": "https://www.linkedin.com/in/deborah-nass-a0551913",
+  "api_response": {
+    "data": [
+      {
+        "error": false,
+        "contacts": [
+          {
+            "type": "email",
+            "value": "deborah.nass@baysidemarin.com",
+            "subType": "personal",
+            "rating": 100
+          }
+        ],
+        "social": []
+      }
+    ]
+  }
+}

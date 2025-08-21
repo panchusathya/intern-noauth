@@ -1,0 +1,24 @@
+# Flask Environment Configuration Template
+# Copy this to .env and replace placeholder values
+
+FLASK_ENV=development
+SECRET_KEY=your-secret-key-here
+
+# Required API Keys
+ANTHROPIC_API_KEY=your_anthropic_api_key_here
+BROWSERBASE_API_KEY=your_browserbase_api_key_here
+BROWSERBASE_PROJECT_ID=your_browserbase_project_id_here
+
+# Optional Email Configuration (for email sending functionality)
+OUTLOOK_EMAIL=your_outlook_email@domain.com
+OUTLOOK_PASSWORD=your_outlook_app_password_here
+
+# Optional OAuth Configuration (for O365 integration)
+OUTLOOK_CLIENT_ID=your_client_id_here
+OUTLOOK_CLIENT_SECRET=your_client_secret_here
+OUTLOOK_TENANT_ID=your_tenant_id_here
+
+# Instructions:
+# 1. Copy this file to .env
+# 2. Replace all placeholder values with your actual credentials
+# 3. Never commit the .env file to version control 

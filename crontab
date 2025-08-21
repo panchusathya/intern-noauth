@@ -1,0 +1,6 @@
+# Batch notification scheduler
+# Runs every 5 minutes to check for completed batches and send notifications
+*/5 * * * * cd /app && python batch_notifier.py
+
+# Health check - runs every hour to ensure the system is working
+0 * * * * cd /app && python -c "from batch_notifier import health_check; health_check()" || echo "Health check failed at $(date)"

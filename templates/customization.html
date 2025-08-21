@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Customization - Wello Internal Tooling</title>
+    <meta name="description" content="Customize your email templates">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        .customization-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-6);
+        }
+        
+        .customization-header {
+            margin-bottom: var(--space-6);
+        }
+        
+        .customization-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .customization-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        .template-grid {
+            display: grid;
+            gap: var(--space-4);
+            margin-bottom: var(--space-6);
+        }
+        
+        .template-card {
+            background: var(--bg-secondary);
+            border: var(--border-thin) solid var(--border-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-4);
+            position: relative;
+        }
+        
+        .template-card.active {
+            border-color: var(--primary);
+            background: var(--bg-card);
+        }
+        
+        .template-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--space-3);
+        }
+        
+        .template-info {
+            flex: 1;
+        }
+        
+        .template-type {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-1);
+        }
+        
+        .template-company {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .template-actions {
+            display: flex;
+            gap: var(--space-2);
+        }
+        
+        .template-btn {
+            padding: var(--space-2);
+            background: transparent;
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            color: var(--text-secondary);
+            transition: all 0.15s ease;
+        }
+        
+        .template-btn:hover {
+            background: var(--bg-hover);
+            color: var(--text-primary);
+        }
+        
+        .template-btn.delete:hover {
+            color: var(--coral-pink);
+        }
+        
+        .template-content {
+            background: var(--bg-primary);
+            border: var(--border-thin) solid var(--border-primary);
+            border-radius: var(--radius-md);
+            padding: var(--space-3);
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--text-primary);
+            white-space: pre-wrap;
+            word-break: break-word;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .add-template-btn {
+            width: 100%;
+            padding: var(--space-4);
+            background: transparent;
+            border: 2px dashed var(--border-primary);
+            border-radius: var(--radius-lg);
+            color: var(--text-secondary);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-2);
+            margin-top: var(--space-4);
+        }
+        
+        .add-template-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: var(--bg-secondary);
+        }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: var(--space-4);
+        }
+        
+        .modal-overlay.show {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-xl);
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .modal-header {
+            padding: var(--space-5);
+            border-bottom: var(--border-thin) solid var(--border-primary);
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        
+        .modal-body {
+            padding: var(--space-5);
+            overflow-y: auto;
+            flex: 1;
+        }
+        
+        .modal-footer {
+            padding: var(--space-5);
+            border-top: var(--border-thin) solid var(--border-primary);
+            display: flex;
+            justify-content: flex-end;
+            gap: var(--space-3);
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: var(--space-2);
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+        
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: var(--space-3);
+            background: var(--bg-primary);
+            border: var(--border-thin) solid var(--border-primary);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.15s ease;
+        }
+        
+        .form-textarea {
+            min-height: 200px;
+            resize: vertical;
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+        }
+        
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 209, 197, 0.1);
+        }
+        
+        .form-hint {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-top: var(--space-1);
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: var(--space-8) var(--space-4);
+        }
+        
+        .empty-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto var(--space-4);
+            color: var(--text-secondary);
+            opacity: 0.5;
+        }
+        
+        .empty-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .empty-description {
+            color: var(--text-secondary);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-left">
+                <div class="logo-section">
+                    <img src="{{ url_for('logo') }}" alt="Westbridge" class="logo">
+                    <div class="branding">
+                        <div class="brand-name">Wello</div>
+                        <div class="brand-subtitle">Email Customization</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="auth-section">
+                <div class="user-dropdown" id="userDropdown">
+                    <button class="user-dropdown-btn" id="userDropdownBtn">
+                        <span class="user-avatar"></span>
+                        <span class="user-name" id="userName">{{ user.name if user and user.name else 'User' }}</span>
+                        <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <div class="user-dropdown-menu" id="userDropdownMenu">
+                        <a href="/" class="dropdown-item">
+                            <span class="dropdown-icon">
+                                <svg class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                                </svg>
+                            </span>
+                            Home
+                        </a>
+                        <a href="/analytics" class="dropdown-item">
+                            <span class="dropdown-icon">
+                                <svg class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
+                                </svg>
+                            </span>
+                            Analytics
+                        </a>
+                        <a href="/history" class="dropdown-item">
+                            <span class="dropdown-icon">
+                                <svg class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                </svg>
+                            </span>
+                            History
+                        </a>
+                        <a href="/customization" class="dropdown-item active">
+                            <span class="dropdown-icon">
+                                <svg class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 0 1 1.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.559.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.894.149c-.424.07-.764.383-.929.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 0 1-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.398.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 0 1-.12-1.45l.527-.737c.25-.35.272-.806.108-1.204-.165-.397-.506-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.108-1.204l-.526-.738a1.125 1.125 0 0 1 .12-1.45l.773-.773a1.125 1.125 0 0 1 1.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894Z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                </svg>
+                            </span>
+                            Customization
+                        </a>
+                        <hr class="dropdown-divider">
+                        <a href="/logout" class="dropdown-item logout">
+                            <span class="dropdown-icon">
+                                <svg class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9" />
+                                </svg>
+                            </span>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="customization-container">
+        <div class="customization-header">
+            <h1 class="customization-title">Email Templates</h1>
+            <p class="customization-subtitle">Add your previous successful emails to customize AI-generated outreach</p>
+        </div>
+
+        <div id="templatesContainer">
+            <div class="template-grid" id="templateGrid">
+                <!-- Templates will be populated here -->
+            </div>
+        </div>
+
+        <button class="add-template-btn" id="addTemplateBtn">
+            <svg class="icon" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+            Add Email Template
+        </button>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="emptyState" style="display: none;">
+            <svg class="empty-icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+            </svg>
+            <h2 class="empty-title">No Email Templates Yet</h2>
+            <p class="empty-description">Add your successful email examples to help the AI learn your style and create better personalized outreach.</p>
+        </div>
+    </main>
+
+    <!-- Add/Edit Template Modal -->
+    <div class="modal-overlay" id="templateModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Add Email Template</h2>
+            </div>
+            <div class="modal-body">
+                <form id="templateForm">
+                    <input type="hidden" id="templateId" value="">
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="templateType">Template Type</label>
+                        <select id="templateType" class="form-select" required>
+                            <option value="">Select type...</option>
+                            <option value="founder">Founder Outreach</option>
+                            <option value="investor">Investor Outreach</option>
+                            <option value="general">General Outreach</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="companyName">Company/Recipient Name</label>
+                        <input type="text" id="companyName" class="form-input" placeholder="e.g., Acme Corp" required>
+                        <p class="form-hint">Who was this email sent to?</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="emailContent">Email Content</label>
+                        <textarea id="emailContent" class="form-textarea" placeholder="Paste your email content here..." required></textarea>
+                        <p class="form-hint">Include the subject line if possible. Personal information will be automatically redacted.</p>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                <button type="button" class="btn btn-primary" id="saveTemplateBtn">Save Template</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        class CustomizationApp {
+            constructor() {
+                this.templates = [];
+                this.currentEditId = null;
+                this.initializeElements();
+                this.bindEvents();
+                this.loadTemplates();
+            }
+
+            initializeElements() {
+                this.templateGrid = document.getElementById('templateGrid');
+                this.templatesContainer = document.getElementById('templatesContainer');
+                this.emptyState = document.getElementById('emptyState');
+                this.addTemplateBtn = document.getElementById('addTemplateBtn');
+                
+                // Modal elements
+                this.templateModal = document.getElementById('templateModal');
+                this.modalTitle = document.getElementById('modalTitle');
+                this.templateForm = document.getElementById('templateForm');
+                this.templateId = document.getElementById('templateId');
+                this.templateType = document.getElementById('templateType');
+                this.companyName = document.getElementById('companyName');
+                this.emailContent = document.getElementById('emailContent');
+                this.saveTemplateBtn = document.getElementById('saveTemplateBtn');
+                this.cancelBtn = document.getElementById('cancelBtn');
+
+                // User dropdown
+                this.userDropdownBtn = document.getElementById('userDropdownBtn');
+                this.userDropdownMenu = document.getElementById('userDropdownMenu');
+            }
+
+            bindEvents() {
+                this.addTemplateBtn.addEventListener('click', () => this.showAddModal());
+                this.saveTemplateBtn.addEventListener('click', () => this.saveTemplate());
+                this.cancelBtn.addEventListener('click', () => this.hideModal());
+                
+                // Close modal on overlay click
+                this.templateModal.addEventListener('click', (e) => {
+                    if (e.target === this.templateModal) {
+                        this.hideModal();
+                    }
+                });
+
+                // User dropdown
+                this.userDropdownBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    this.userDropdownMenu.classList.toggle('show');
+                });
+
+                document.addEventListener('click', () => {
+                    this.userDropdownMenu.classList.remove('show');
+                });
+            }
+
+            async loadTemplates() {
+                try {
+                    const response = await fetch('/api/email-templates');
+                    if (response.ok) {
+                        this.templates = await response.json();
+                        this.renderTemplates();
+                    }
+                } catch (error) {
+                    console.error('Failed to load templates:', error);
+                    this.showNotification('Failed to load templates', 'error');
+                }
+
+                // User info loaded via server-side templating - no API call needed
+            }
+
+
+            renderTemplates() {
+                // Always ensure the Add Template button is visible
+                this.addTemplateBtn.style.display = 'flex';
+                
+                if (this.templates.length === 0) {
+                    this.templateGrid.style.display = 'none';
+                    this.emptyState.style.display = 'block';
+                    return;
+                }
+
+                this.templateGrid.style.display = 'block';
+                this.emptyState.style.display = 'none';
+
+                this.templateGrid.innerHTML = this.templates.map(template => `
+                    <div class="template-card" data-id="${template.id}">
+                        <div class="template-header">
+                            <div class="template-info">
+                                <div class="template-type">${this.getTemplateTypeLabel(template.type)}</div>
+                                <div class="template-company">${this.escapeHtml(template.company_name)}</div>
+                            </div>
+                            <div class="template-actions">
+                                <button class="template-btn edit" onclick="customizationApp.editTemplate('${template.id}')">
+                                    <svg class="icon" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+                                    </svg>
+                                </button>
+                                <button class="template-btn delete" onclick="customizationApp.deleteTemplate('${template.id}')">
+                                    <svg class="icon" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="template-content">${this.escapeHtml(template.email_content)}</div>
+                    </div>
+                `).join('');
+            }
+
+            getTemplateTypeLabel(type) {
+                const labels = {
+                    'founder': 'Founder Outreach',
+                    'investor': 'Investor Outreach',
+                    'general': 'General Outreach'
+                };
+                return labels[type] || type;
+            }
+
+            showAddModal() {
+                this.currentEditId = null;
+                this.modalTitle.textContent = 'Add Email Template';
+                this.templateForm.reset();
+                this.templateId.value = '';
+                this.showModal();
+            }
+
+            editTemplate(id) {
+                const template = this.templates.find(t => t.id === id);
+                if (!template) return;
+
+                this.currentEditId = id;
+                this.modalTitle.textContent = 'Edit Email Template';
+                this.templateId.value = id;
+                this.templateType.value = template.type;
+                this.companyName.value = template.company_name;
+                this.emailContent.value = template.email_content;
+                this.showModal();
+            }
+
+            async deleteTemplate(id) {
+                if (!confirm('Are you sure you want to delete this email template?')) {
+                    return;
+                }
+
+                try {
+                    const response = await fetch(`/api/email-templates/${id}`, {
+                        method: 'DELETE'
+                    });
+
+                    if (response.ok) {
+                        this.showNotification('Template deleted successfully', 'success');
+                        this.loadTemplates();
+                    } else {
+                        throw new Error('Failed to delete template');
+                    }
+                } catch (error) {
+                    console.error('Error deleting template:', error);
+                    this.showNotification('Failed to delete template', 'error');
+                }
+            }
+
+            async saveTemplate() {
+                const formData = {
+                    type: this.templateType.value,
+                    company_name: this.companyName.value,
+                    email_content: this.emailContent.value
+                };
+
+                if (!formData.type || !formData.company_name || !formData.email_content) {
+                    this.showNotification('Please fill in all fields', 'error');
+                    return;
+                }
+
+                try {
+                    const url = this.currentEditId 
+                        ? `/api/email-templates/${this.currentEditId}`
+                        : '/api/email-templates';
+                    
+                    const method = this.currentEditId ? 'PUT' : 'POST';
+
+                    const response = await fetch(url, {
+                        method: method,
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(formData)
+                    });
+
+                    if (response.ok) {
+                        this.showNotification(
+                            this.currentEditId ? 'Template updated successfully' : 'Template added successfully',
+                            'success'
+                        );
+                        this.hideModal();
+                        this.loadTemplates();
+                    } else {
+                        throw new Error('Failed to save template');
+                    }
+                } catch (error) {
+                    console.error('Error saving template:', error);
+                    this.showNotification('Failed to save template', 'error');
+                }
+            }
+
+            showModal() {
+                this.templateModal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+
+            hideModal() {
+                this.templateModal.classList.remove('show');
+                document.body.style.overflow = '';
+                this.templateForm.reset();
+            }
+
+            showNotification(message, type = 'info') {
+                const notification = document.createElement('div');
+                notification.className = `notification notification-${type}`;
+                notification.textContent = message;
+                
+                Object.assign(notification.style, {
+                    position: 'fixed',
+                    top: '20px',
+                    right: '20px',
+                    padding: '12px 20px',
+                    borderRadius: '8px',
+                    backgroundColor: type === 'success' ? '#48BB78' : type === 'error' ? '#FF6B7A' : '#4FD1C5',
+                    color: 'white',
+                    fontWeight: '500',
+                    zIndex: '9999',
+                    transform: 'translateX(100%)',
+                    transition: 'transform 0.3s ease'
+                });
+                
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.style.transform = 'translateX(0)';
+                }, 100);
+                
+                setTimeout(() => {
+                    notification.style.transform = 'translateX(100%)';
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 300);
+                }, 3000);
+            }
+
+            escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+        }
+
+        // Initialize app when DOM is loaded
+        const customizationApp = new CustomizationApp();
+    </script>
+</body>
+</html>

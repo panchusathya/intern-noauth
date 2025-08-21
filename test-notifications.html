@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification Test - Wello</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        body {
+            padding: 2rem;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-mono);
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .test-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--bg-deeper);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--bg-secondary);
+        }
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        .test-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: var(--font-mono);
+        }
+        .test-btn.success {
+            background: var(--mint-green);
+            color: white;
+        }
+        .test-btn.error {
+            background: var(--coral-pink);
+            color: white;
+        }
+        .test-btn.info {
+            background: var(--electric-purple);
+            color: white;
+        }
+        .test-btn.warning {
+            background: #ed8936;
+            color: white;
+        }
+        .test-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Notification System Test</h1>
+        <p>Test the improved notification system with different types and messages.</p>
+        
+        <div class="test-section">
+            <h2>Basic Notifications</h2>
+            <p>Test different notification types:</p>
+            <div class="btn-group">
+                <button class="test-btn success" onclick="showNotification('Operation completed successfully!', 'success')">
+                    Success Notification
+                </button>
+                <button class="test-btn error" onclick="showNotification('Something went wrong. Please try again.', 'error')">
+                    Error Notification
+                </button>
+                <button class="test-btn info" onclick="showNotification('Here is some helpful information for you.', 'info')">
+                    Info Notification
+                </button>
+                <button class="test-btn warning" onclick="showNotification('Warning: Please review your settings.', 'warning')">
+                    Warning Notification
+                </button>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Multiple Notifications</h2>
+            <p>Test notification stacking and management:</p>
+            <div class="btn-group">
+                <button class="test-btn info" onclick="showMultipleNotifications()">
+                    Show Multiple Notifications
+                </button>
+                <button class="test-btn success" onclick="showNotification('This notification stays open', 'success', 0)">
+                    Persistent Notification
+                </button>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Long Messages</h2>
+            <p>Test notifications with longer content:</p>
+            <div class="btn-group">
+                <button class="test-btn error" onclick="showNotification('This is a much longer error message that tests how the notification system handles content that might wrap to multiple lines and still looks good.', 'error')">
+                    Long Error Message
+                </button>
+                <button class="test-btn success" onclick="showNotification('Your file has been successfully uploaded and processed. All data has been validated and imported into the system.', 'success')">
+                    Long Success Message
+                </button>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Common App Messages</h2>
+            <p>Test notifications similar to what users would see:</p>
+            <div class="btn-group">
+                <button class="test-btn success" onclick="showNotification('Email sent successfully to john@acmeventures.com', 'success')">
+                    Email Sent
+                </button>
+                <button class="test-btn error" onclick="showNotification('Failed to send email: company_name', 'error')">
+                    Email Failed (Old Error)
+                </button>
+                <button class="test-btn error" onclick="showNotification('Failed to send email: No Graph access token in session – please log in again.', 'error')">
+                    Email Failed (New Error)
+                </button>
+                <button class="test-btn info" onclick="showNotification('Uploading and validating CSV...', 'info')">
+                    CSV Upload
+                </button>
+                <button class="test-btn success" onclick="showNotification('Batch job submitted successfully! Check Analytics page for updates.', 'success')">
+                    Batch Success
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+    <script>
+        function showMultipleNotifications() {
+            showNotification('First notification', 'info');
+            setTimeout(() => showNotification('Second notification', 'success'), 500);
+            setTimeout(() => showNotification('Third notification', 'warning'), 1000);
+            setTimeout(() => showNotification('Fourth notification', 'error'), 1500);
+            setTimeout(() => showNotification('Fifth notification', 'info'), 2000);
+            setTimeout(() => showNotification('Sixth notification (should replace oldest)', 'success'), 2500);
+        }
+    </script>
+</body>
+</html>
